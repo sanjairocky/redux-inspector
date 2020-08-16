@@ -1,1 +1,1 @@
-"# redux-emitter" 
+# redux-emitter

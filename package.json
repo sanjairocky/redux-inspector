@@ -1,7 +1,10 @@
 {
   "name": "redux-emitter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple light weight event emitter for redux",
+  "repository": "github:sanjairocky/redux-emitter",
+  "bugs": "https://github.com/sanjairocky/redux-emitter/issues",
+  "homepage": "https://github.com/sanjairocky/redux-emitter",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
