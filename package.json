@@ -1,0 +1,20 @@
+{
+  "name": "redux-emitter",
+  "version": "0.0.2",
+  "description": "A simple light weight event emitter for redux",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redux",
+    "event",
+    "event-emitter",
+    "redux-emitter"
+  ],
+  "author": "sanjairocky",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.0.5"
+  }
+}
