@@ -4,7 +4,7 @@ const browserify = require("browserify");
 const fs = require("fs");
 const terser = require("terser");
 
-const bundler = browserify({ standalone: "redux-emitter" });
+const bundler = browserify({ standalone: "redux-inspector" });
 
 bundler.add("src/index.js");
 
@@ -15,13 +15,13 @@ function bundle(done) {
     }
 
     //generateBndle - to gen bundle
-    console.log("Generating ReduxEmitter.js ");
-    fs.writeFileSync("out/ReduxEmitter.js", source);
+    console.log("Generating ReduxInspector.js ");
+    fs.writeFileSync("out/ReduxInspector.js", source);
 
     const result = terser.minify(source.toString());
     if (result.code) {
-      console.log("Generating ReduxEmitter.min.js");
-      fs.writeFileSync("out/ReduxEmitter.min.js", result.code, "utf8");
+      console.log("Generating ReduxInspector.min.js");
+      fs.writeFileSync("out/ReduxInspector.min.js", result.code, "utf8");
     } else {
       console.log(result.error);
     }

@@ -1,8 +1,8 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.reduxEmitter = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.reduxInspector = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const WildEmitter = require("./lib/wildemitter");
 
-const ReduxEmitter = function (props) {
-  if (!(this instanceof ReduxEmitter)) return new ReduxEmitter(arguments);
+const ReduxInspector = function (props) {
+  if (!(this instanceof ReduxInspector)) return new ReduxInspector(arguments);
 
   if (!props) props = {};
 
@@ -12,8 +12,8 @@ const ReduxEmitter = function (props) {
   });
 };
 
-ReduxEmitter.prototype.watch = function (store) {
-  if (!(this instanceof ReduxEmitter)) return;
+ReduxInspector.prototype.watch = function (store) {
+  if (!(this instanceof ReduxInspector)) return;
   if (store && store.subscribe) {
     this.store = store;
     if (this.store.getState) this.currentState = this.store.getState();
@@ -21,8 +21,8 @@ ReduxEmitter.prototype.watch = function (store) {
   }
 };
 
-ReduxEmitter.prototype.listen = function (newState) {
-  if (!(this instanceof ReduxEmitter)) return;
+ReduxInspector.prototype.listen = function (newState) {
+  if (!(this instanceof ReduxInspector)) return;
   const prevState = this.currentState;
   this.currentState = newState;
 
@@ -70,12 +70,12 @@ const checkKey = function ({ key, prevState, newState, self }) {
   }
 };
 
-ReduxEmitter.prototype.addSpy = function (
+ReduxInspector.prototype.addSpy = function (
   attributePath,
   reducerName,
   callback
 ) {
-  if (!(this instanceof ReduxEmitter)) return;
+  if (!(this instanceof ReduxInspector)) return;
 
   let path, callBackFn;
 
@@ -95,8 +95,8 @@ ReduxEmitter.prototype.addSpy = function (
   return this;
 };
 
-ReduxEmitter.prototype.removeSpy = function (attributePath, reducerName) {
-  if (!(this instanceof ReduxEmitter)) return;
+ReduxInspector.prototype.removeSpy = function (attributePath, reducerName) {
+  if (!(this instanceof ReduxInspector)) return;
 
   if (arguments.length == 2) {
     const path = `${this.delimiter}${arguments[1]}${this.delimiter}${arguments[0]}`;
@@ -110,13 +110,13 @@ ReduxEmitter.prototype.removeSpy = function (attributePath, reducerName) {
   return this;
 };
 
-ReduxEmitter.prototype.author = "sanjairocky";
+ReduxInspector.prototype.author = "sanjairocky";
 
-ReduxEmitter.prototype.isReduxEmitter = true;
+ReduxInspector.prototype.isReduxInspector = true;
 
-ReduxEmitter.prototype.organization = "Sanazu";
+ReduxInspector.prototype.organization = "Sanazu";
 
-module.exports = ReduxEmitter;
+module.exports = ReduxInspector;
 
 },{"./lib/wildemitter":2}],2:[function(require,module,exports){
 function WildEmitter() {}

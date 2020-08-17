@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React-Emitter Demo</title>
-    <script src="../out/ReduxEmitter.js"></script>
+    <script src="../out/ReduxInspector.js"></script>
     <script src="https://unpkg.com/redux@4.0.5/dist/redux.js"></script>
   </head>
   <body>
     <script>
-      const emitter = new reduxEmitter();
+      const inspector = new reduxInspector();
       function todos(
         state = {
           text: [],
@@ -25,7 +25,17 @@
       }
 
       const store = Redux.createStore(todos, { text: ["helo"] });
-      emitter.watch(store);
+      inspector.watch(store);
+
+      // inspector.addSpy("", (prevState, newState) => {
+      //   // validate
+      //   console.log(prevState, newState);
+      // });
+
+      inspector.addSpy("text", (prevState, newState) => {
+        // validate
+        console.log(prevState, newState);
+      });
 
       function addTodo(text) {
         return {

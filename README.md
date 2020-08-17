@@ -1,21 +1,21 @@
-# Redux Emitter
+# Redux Inspector
 
-[Redux Emitter](https://www.npmjs.com/package/redux-emitter) is Event Emitter for Redux
+[Redux Inspector](https://www.npmjs.com/package/redux-inspector) is Event Emitter for Redux
 
-[![npm version](https://img.shields.io/npm/v/redux-emitter.svg?style=flat-square)](https://www.npmjs.com/package/redux-emitter)
-[![npm downloads](https://img.shields.io/npm/dm/redux-emitter.svg?style=flat-square)](https://www.npmjs.com/package/redux-emitter)
+[![npm version](https://img.shields.io/npm/v/redux-inspector.svg?style=flat-square)](https://www.npmjs.com/package/redux-inspector)
+[![npm downloads](https://img.shields.io/npm/dm/redux-inspector.svg?style=flat-square)](https://www.npmjs.com/package/redux-inspector)
 
 # installation
 
 ```bash
-npm install redux-emitter
+npm install redux-inspector
 
 ```
 
 or
 
 ```bash
-yarn add redux-emitter
+yarn add redux-inspector
 
 ```
 
@@ -32,19 +32,19 @@ async logic like AJAX requests.
 # Import
 
 ```js
-const ReduxEmitter = require("redux-emitter");
+const ReduxInspector = require("redux-inspector");
 ```
 
 or
 
 ```js
-import ReduxEmitter from "redux-emitter";
+import ReduxInspector from "redux-inspector";
 ```
 
 # Usage
 
 ```js
-const emitter = new ReduxEmitter({
+const inspector = new ReduxInspector({
   delimiter: "/",
 });
 
@@ -64,21 +64,21 @@ function todos(
 
 const store = Redux.createStore(todos, { text: ["helo"] });
 
-emitter.watch(store);
+inspector.watch(store);
 
-emitter.addSpy("", (prevState, newState) => {
+inspector.addSpy("", (prevState, newState) => {
   // validate
   console.log(prevState, newState);
 });
 
-emitter.addSpy("text", (prevState, newState) => {
+inspector.addSpy("text", (prevState, newState) => {
   // validate
   console.log(prevState, newState);
 });
 
-emitter.removeSpy("");
+inspector.removeSpy("");
 
-emitter.removeSpy("text");
+inspector.removeSpy("text");
 
 function addTodo(text) {
   return {
@@ -91,4 +91,4 @@ store.dispatch(addTodo("Read the docs"));
 store.dispatch(addTodo("Read about the middleware"));
 ```
 
-## What’s a redux-emitter?!
+## What’s a redux-inspector?

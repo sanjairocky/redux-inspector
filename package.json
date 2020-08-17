@@ -1,10 +1,10 @@
 {
-  "name": "redux-emitter",
+  "name": "redux-inspector",
   "version": "1.0.0",
-  "description": "A simple light weight event emitter for redux",
-  "repository": "github:sanjairocky/redux-emitter",
-  "bugs": "https://github.com/sanjairocky/redux-emitter/issues",
-  "homepage": "https://github.com/sanjairocky/redux-emitter",
+  "description": "A simple light weight event inspector for redux",
+  "repository": "github:sanjairocky/redux-inspector",
+  "bugs": "https://github.com/sanjairocky/redux-inspector/issues",
+  "homepage": "https://github.com/sanjairocky/redux-inspector",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,8 +14,9 @@
   "keywords": [
     "redux",
     "event",
+    "event-inspector",
     "event-emitter",
-    "redux-emitter"
+    "redux-inspector"
   ],
   "author": "sanjairocky",
   "license": "MIT",
