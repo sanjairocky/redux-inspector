@@ -44,22 +44,41 @@ import ReduxEmitter from "redux-emitter";
 # Usage
 
 ```js
-const emitter = new ReduxEmitter();
-function todos(state = [], action) {
+const emitter = new ReduxEmitter({
+  delimiter: "/",
+});
+
+function todos(
+  state = {
+    text: [],
+  },
+  action
+) {
   switch (action.type) {
     case "ADD_TODO":
-      return state.concat([action.text]);
+      return { ...state, text: state.text.concat([action.text]) };
     default:
       return state;
   }
 }
 
-const store = Redux.createStore(todos, ["Use Redux"]);
+const store = Redux.createStore(todos, { text: ["helo"] });
+
 emitter.watch(store);
 
 emitter.onChange("", (prevState, newState) => {
   // validate
+  console.log(prevState, newState);
 });
+
+emitter.onChange("text", (prevState, newState) => {
+  // validate
+  console.log(prevState, newState);
+});
+
+emitter.offChange("");
+
+emitter.offChange("text");
 
 function addTodo(text) {
   return {
