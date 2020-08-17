@@ -42,8 +42,7 @@ const checkKey = function ({ key, prevState, newState, self }) {
     !(prevState instanceof Array)
   ) {
     Object.keys(newState).forEach((k) => {
-      const event = `${key === this.delimiter ? "" : key}${this.delimiter}${k}`;
-
+      const event = `${key === self.delimiter ? "" : key}${self.delimiter}${k}`;
       checkKey({
         key: event,
         prevState: prevState[k],
@@ -57,6 +56,15 @@ const checkKey = function ({ key, prevState, newState, self }) {
     newState instanceof Array ||
     prevState instanceof Array
   ) {
+    if (
+      (newState instanceof Array &&
+        prevState instanceof Array &&
+        newState.length === prevState.length) ||
+      prevState === newState
+    ) {
+      return;
+    }
+
     // console.log(key, prevState, newState);
     self.emit(key, prevState, newState);
   }

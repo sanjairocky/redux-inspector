@@ -10,16 +10,21 @@
   <body>
     <script>
       const emitter = new reduxEmitter();
-      function todos(state = [], action) {
+      function todos(
+        state = {
+          text: [],
+        },
+        action
+      ) {
         switch (action.type) {
           case "ADD_TODO":
-            return state.concat([action.text]);
+            return { ...state, text: state.text.concat([action.text]) };
           default:
             return state;
         }
       }
 
-      const store = Redux.createStore(todos, ["Use Redux"]);
+      const store = Redux.createStore(todos, { text: ["helo"] });
       emitter.watch(store);
 
       function addTodo(text) {
