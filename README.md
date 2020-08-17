@@ -1,6 +1,6 @@
 # Redux Emitter
 
-Event Emitter [Redux Emitter](https://www.npmjs.com/package/redux-emitter) for Redux
+[Redux Emitter](https://www.npmjs.com/package/redux-emitter) is Event Emitter for Redux
 
 [![npm version](https://img.shields.io/npm/v/redux-emitter.svg?style=flat-square)](https://www.npmjs.com/package/redux-emitter)
 [![npm downloads](https://img.shields.io/npm/dm/redux-emitter.svg?style=flat-square)](https://www.npmjs.com/package/redux-emitter)
