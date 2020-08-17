@@ -1,6 +1,6 @@
 {
   "name": "redux-emitter",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "A simple light weight event emitter for redux",
   "repository": "github:sanjairocky/redux-emitter",
   "bugs": "https://github.com/sanjairocky/redux-emitter/issues",
@@ -17,7 +17,5 @@
   ],
   "author": "sanjairocky",
   "license": "MIT",
-  "dependencies": {
-    "redux": "^4.0.5"
-  }
+  "dependencies": {}
 }
