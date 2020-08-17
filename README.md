@@ -2,7 +2,7 @@
 
 Emitter [Event Emitter] for Redux
 
-[![npm version](v1.0.0)](https://www.npmjs.com/package/redux-emitter)
+[![npm version](https://img.shields.io/npm/v/redux-emitter.svg?style=flat-square)](https://www.npmjs.com/package/redux-emitter)
 [![npm downloads](https://img.shields.io/npm/dm/redux-emitter.svg?style=flat-square)](https://www.npmjs.com/package/redux-emitter)
 
 # installation
