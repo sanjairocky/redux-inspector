@@ -69,7 +69,7 @@ const checkKey = function ({ key, prevState, newState, self }) {
   }
 };
 
-ReduxInspector.prototype.addSpy = function (
+ReduxInspector.prototype.spyOn = function (
   attributePath,
   reducerName,
   callback
@@ -94,7 +94,7 @@ ReduxInspector.prototype.addSpy = function (
   return this;
 };
 
-ReduxInspector.prototype.removeSpy = function (attributePath, reducerName) {
+ReduxInspector.prototype.spyOff = function (attributePath, reducerName) {
   if (!(this instanceof ReduxInspector)) return;
 
   if (arguments.length == 2) {
