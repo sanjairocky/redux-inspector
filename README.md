@@ -66,19 +66,19 @@ const store = Redux.createStore(todos, { text: ["helo"] });
 
 emitter.watch(store);
 
-emitter.onChange("", (prevState, newState) => {
+emitter.addSpy("", (prevState, newState) => {
   // validate
   console.log(prevState, newState);
 });
 
-emitter.onChange("text", (prevState, newState) => {
+emitter.addSpy("text", (prevState, newState) => {
   // validate
   console.log(prevState, newState);
 });
 
-emitter.offChange("");
+emitter.removeSpy("");
 
-emitter.offChange("text");
+emitter.removeSpy("text");
 
 function addTodo(text) {
   return {

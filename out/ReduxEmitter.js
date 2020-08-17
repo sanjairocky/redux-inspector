@@ -70,7 +70,7 @@ const checkKey = function ({ key, prevState, newState, self }) {
   }
 };
 
-ReduxEmitter.prototype.onChange = function (
+ReduxEmitter.prototype.addSpy = function (
   attributePath,
   reducerName,
   callback
@@ -95,7 +95,7 @@ ReduxEmitter.prototype.onChange = function (
   return this;
 };
 
-ReduxEmitter.prototype.offChange = function (attributePath, reducerName) {
+ReduxEmitter.prototype.removeSpy = function (attributePath, reducerName) {
   if (!(this instanceof ReduxEmitter)) return;
 
   if (arguments.length == 2) {
