@@ -7,7 +7,7 @@ const ReduxEmitter = function (props) {
 
   this.delimiter = props.delimiter || "/";
   Object.keys(WildEmitter.prototype).forEach((key) => {
-    this[`_${key}`] = WildEmitter.prototype[key];
+    this[key] = WildEmitter.prototype[key];
   });
 };
 
@@ -56,12 +56,16 @@ const checkKey = function ({ key, prevState, newState, self }) {
     newState instanceof Array ||
     prevState instanceof Array
   ) {
-    console.log(key, prevState, newState);
-    self._emit(key, prevState, newState);
+    // console.log(key, prevState, newState);
+    self.emit(key, prevState, newState);
   }
 };
 
-ReduxEmitter.prototype.on = function (attributePath, reducerName, callback) {
+ReduxEmitter.prototype.onChange = function (
+  attributePath,
+  reducerName,
+  callback
+) {
   if (!(this instanceof ReduxEmitter)) return;
 
   let path, callBackFn;
@@ -78,18 +82,18 @@ ReduxEmitter.prototype.on = function (attributePath, reducerName, callback) {
 
   if (!path || !callBackFn) return;
 
-  this._on(path, callBackFn);
+  this.on(path, callBackFn);
   return this;
 };
 
-ReduxEmitter.prototype.off = function (attributePath, reducerName) {
+ReduxEmitter.prototype.offChange = function (attributePath, reducerName) {
   if (!(this instanceof ReduxEmitter)) return;
 
   if (arguments.length == 2) {
     const path = `${this.delimiter}${arguments[1]}${this.delimiter}${arguments[0]}`;
     if (!path) return;
 
-    this._off(path);
+    this.off(path);
   } else {
     return;
   }
@@ -99,6 +103,8 @@ ReduxEmitter.prototype.off = function (attributePath, reducerName) {
 
 ReduxEmitter.prototype.author = "sanjairocky";
 
+ReduxEmitter.prototype.isReduxEmitter = true;
+
 ReduxEmitter.prototype.organization = "Sanazu";
 
-modules.export = ReduxEmitter;
+module.exports = ReduxEmitter;
