@@ -7,7 +7,7 @@ const ReduxEmitter = function (props) {
 
   this.delimiter = props.delimiter || "/";
   Object.keys(WildEmitter.prototype).forEach((key) => {
-    this[key] = WildEmitter.prototype[key];
+    this[`_${key}`] = WildEmitter.prototype[key];
   });
 };
 
@@ -57,15 +57,11 @@ const checkKey = function ({ key, prevState, newState, self }) {
     prevState instanceof Array
   ) {
     console.log(key, prevState, newState);
-    self.emit(key, prevState, newState);
+    self._emit(key, prevState, newState);
   }
 };
 
-ReduxEmitter.prototype.onChange = function (
-  attributePath,
-  reducerName,
-  callback
-) {
+ReduxEmitter.prototype.on = function (attributePath, reducerName, callback) {
   if (!(this instanceof ReduxEmitter)) return;
 
   let path, callBackFn;
@@ -82,18 +78,18 @@ ReduxEmitter.prototype.onChange = function (
 
   if (!path || !callBackFn) return;
 
-  this.on(path, callBackFn);
+  this._on(path, callBackFn);
   return this;
 };
 
-ReduxEmitter.prototype.offChange = function (attributePath, reducerName) {
+ReduxEmitter.prototype.off = function (attributePath, reducerName) {
   if (!(this instanceof ReduxEmitter)) return;
 
   if (arguments.length == 2) {
     const path = `${this.delimiter}${arguments[1]}${this.delimiter}${arguments[0]}`;
     if (!path) return;
 
-    this.off(path);
+    this._off(path);
   } else {
     return;
   }
