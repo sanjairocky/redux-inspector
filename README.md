@@ -44,7 +44,7 @@ const ex = {
 };
 ```
 
-The possible AttributePath's might be as follows:
+Delimiter is defined while instantiating the ReduxInspector. The possible AttributePath's might be as follows:
 
 - using '/' as a delimiter.
 
@@ -74,9 +74,9 @@ i.e: nickName inside personal
 ["nickName", "details.personal", "details.personal.nickName"];
 ```
 
-first : attributePath or name
-second : parentPath
-third : completePath of the attribute
+- first : attributePath or name
+- second : parentPath
+- third : completePath of the attribute
 
 # installation
 
@@ -123,7 +123,8 @@ const ex = {
 const inspector = new ReduxInspector();
 ```
 
-adding listener for nickName attribute inside personal :
+Same delimiter must be used in the path as well. In this case, we are using '.' as a delimiter.
+Adding listener for nickName attribute inside personal :
 
 - SpyOn
 
