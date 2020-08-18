@@ -20,7 +20,7 @@ and simple async logic like AJAX requests.
 
 - ReduxInspector({}) : it will accept options via constructor. Currently there is only one option. which is to customise the delimiter between the attributes.
 
-  - delimiter : ['.','/'] : default is '.'.
+  - delimiter : ['.','/'] : default is '.'
 
 - watch(STORE) : it consumes the initialized store object to be watched.
 - spyOn(ATTRIBUTE_PATH,PARENT_PATH,CALLBACK) : this will add a listener for that attribute to the store. if the attribute doesn't exists, it has no effect. But, if the attribute is dynamically adding to the store, this will get triggered.
