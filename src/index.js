@@ -5,7 +5,7 @@ const ReduxInspector = function (props) {
 
   if (!props) props = {};
 
-  this.delimiter = props.delimiter || "/";
+  this.delimiter = props.delimiter || ".";
   Object.keys(WildEmitter.prototype).forEach((key) => {
     this[key] = WildEmitter.prototype[key];
   });
@@ -71,7 +71,7 @@ const checkKey = function ({ key, prevState, newState, self }) {
 
 ReduxInspector.prototype.spyOn = function (
   attributePath,
-  reducerName,
+  parentPath,
   callback
 ) {
   if (!(this instanceof ReduxInspector)) return;
@@ -94,10 +94,15 @@ ReduxInspector.prototype.spyOn = function (
   return this;
 };
 
-ReduxInspector.prototype.spyOff = function (attributePath, reducerName) {
+ReduxInspector.prototype.spyOff = function (attributePath, parentPath) {
   if (!(this instanceof ReduxInspector)) return;
 
-  if (arguments.length == 2) {
+  if (arguments.length === 1) {
+    const path = `${this.delimiter}${arguments[0]}`;
+    if (!path) return;
+
+    this.off(path);
+  } else if (arguments.length === 2) {
     const path = `${this.delimiter}${arguments[1]}${this.delimiter}${arguments[0]}`;
     if (!path) return;
 

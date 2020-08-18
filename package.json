@@ -1,6 +1,6 @@
 {
   "name": "redux-inspector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple light weight event inspector for redux",
   "repository": "github:sanjairocky/redux-inspector",
   "bugs": "https://github.com/sanjairocky/redux-inspector/issues",
